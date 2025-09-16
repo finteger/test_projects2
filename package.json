@@ -1,8 +1,5 @@
 {
   "name": "test_projects",
-  "jest": {
-    "verbose": true
-  },
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
