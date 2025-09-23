@@ -13,9 +13,9 @@ describe('fetchData',  () => {
 
     test('fetches data from the API endpoint and returns it as JSON', async () =>{
 
-        //AAA pattern
-        //Arrange
-        //Mock response
+        /*AAA pattern
+          Arrange
+          Mock response*/
         const mockResponse = {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
         fetch.mockResolvedValueOnce({
             ok: true,
@@ -25,12 +25,9 @@ describe('fetchData',  () => {
         //Action
         const data = await fetchData('https://jsonplaceholder.typicode.com/todos/1');
 
-
-    })
-
-
-
-
-
+        //Assert
+        expect(data).toEqual(mockResponse);
+        expect(fetch).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos/1');
+    });
 
 });
