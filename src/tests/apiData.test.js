@@ -1,5 +1,5 @@
 //import the function to be tested
-const fetchData = require('./functions/apiData.js');
+const { fetchData } = require('./functions/apiData.js');
 
 //Mock this global fetch function
 global.fetch = jest.fn();
