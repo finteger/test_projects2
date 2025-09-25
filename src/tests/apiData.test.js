@@ -36,6 +36,6 @@ describe('fetchData',  () => {
         fetch.mockResolvedValueOnce({ok: false});
 
         //Assert
-        await expect(fetchData('https://jsonplaceholder.typicode.com/todos/1').rejects.toThrow("There was a networking error"))
+        await expect(fetchData('https://jsonplaceholder.typicode.com/todos/1')).rejects.toThrow("There was a networking error")
     });
 });
