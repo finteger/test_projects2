@@ -8,16 +8,17 @@ const userSchema = new mongoose.Schema({
   age: { type: Number, min: 7, max: 120 },
 });
 
-const User = mongoose.model("Users", userSchema);
+const User = mongoose.model("User", userSchema);
 
 //Controller function for user creation object
-exports.createUser = async (firstName, email, password, age) => {
+ const createUser = async (firstName, email, password, age) => {
   try {
     const user = new User({firstName, email, password, age });
     await user.save();
-  } catch (error) {
+    return user;
+  } catch (error) { 
     throw new Error('Something went wrong with creating a new user.');
   }
 };
 
-//not needed: module.exports = {};
+module.exports = { createUser, User };
