@@ -10,6 +10,8 @@ describe('User Model Testing', () => {
         jest.clearAllMocks();
     });
 
+    it('should create a new user', async ()=>{
+
     //arrange by setting up mock object literal
     const mockUser = {
         name: "Todd",
@@ -19,11 +21,11 @@ describe('User Model Testing', () => {
     }
 
     //Action
-    jest.spyOn(User.prototype, 'save').mockResolvedValue(mockUser)
-    var result = createUser('Todd', 'josh.nash@example.com', 'password', 100);
+    jest.spyOn(User.prototype, 'save').mockResolvedValue(mockUser);
+    var result = await createUser('Todd', 'josh.nash@example.com', 'password', 100);
 
     //Assert
     expect(result).toEqual(expect.objectContaining(mockUser));
     expect(User.prototype.save).toHaveBeenCalledTimes(1);
-
+    });
 });

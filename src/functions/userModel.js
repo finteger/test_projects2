@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 //Creating a user schema
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
+  name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   age: { type: Number},
@@ -11,9 +11,9 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 //Controller function for user creation object
- const createUser = async (firstName, email, password, age) => {
+ const createUser = async (name, email, password, age) => {
   try {
-    const user = new User({firstName, email, password, age });
+    const user = new User({name, email, password, age });
     await user.save();
     return user;
   } catch (error) { 
